@@ -70,7 +70,6 @@ export const books: Book[] = [
     genre: 'Développement personnel',
     year: 2026,
     publisher: 'Mango Éditions',
-    releaseDate: '2026-09-25',
     description:
       "Réflexions, expériences et pistes concrètes pour retrouver ce qui nous met en mouvement — chaque chapitre se referme sur un temps d'exercice.",
     cover: ikigai,
