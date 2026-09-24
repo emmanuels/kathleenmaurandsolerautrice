@@ -36,8 +36,10 @@ export const featured = {
   releaseLabel: 'Disponible en librairie',
   /** Publisher's presentation (Mango Éditions). */
   intro: [
-    'Bien plus qu’un concept japonais, l’ikigaï apparaît ici comme un mouvement vivant : une manière d’habiter pleinement sa vie, de retrouver son élan et de renouer avec ce qui nous met réellement en joie.',
-    'À travers un chemin structuré en étapes – de l’éveil à l’action, de l’exploration intime à l’ancrage concret –, elle propose une expérience immersive mêlant récits personnels, exercices pratiques, mantras et respirations poétiques.',
+    'La clé d’une vie plus alignée ne se trouverait-elle pas déjà en nous ? Un murmure discret, une intuition légère, un élan que l’on a parfois appris à faire taire… C’est là que commence l’ikigaï.',
+    'Dans cet ouvrage inspirant, Kathleen Maurand Soler vous invite à découvrir ce qui donne du sens à votre existence. Bien plus qu’un concept japonais, l’ikigaï apparaît ici comme un mouvement vivant : une manière d’habiter pleinement sa vie, de retrouver son élan et de renouer avec ce qui nous met réellement en joie.',
+    'À travers un chemin structuré en étapes – de l’éveil à l’action, de l’exploration intime à l’ancrage concret –, elle propose une expérience immersive mêlant récits personnels, exercices pratiques, mantras et respirations poétiques. Pas à pas, vous apprendrez à identifier ce qui vous anime, à écouter votre énergie, à reconnaître vos talents parfois invisibles et à tracer une trajectoire fidèle à qui vous êtes.',
+    'Accessible à tous ceux qui ressentent un besoin de changement ou de clarté, ce guide invite à ralentir pour mieux avancer.',
   ],
   cover: ikigai,
   coverAlt: 'Couverture du livre Ikigaï de Kathleen Maurand Soler, Mango Éditions',
