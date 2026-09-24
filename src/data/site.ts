@@ -7,6 +7,18 @@ import type { ImageMetadata } from 'astro';
 
 export const site = {
   name: 'Kathleen Maurand Soler',
+  jobTitle: "Autrice et professeure d'anglais",
+  bio: [
+    "Kathleen Maurand Soler écrit sur ce qui fait grandir : la transmission, la connaissance de soi et la quête de sens. Ses premiers livres, publiés chez Hatier Jeunesse, sont nés de la pédagogie Montessori et du désir très concret d'outiller les familles au quotidien.",
+    "Elle est aussi professeure d'anglais dans le Gard. Enseigner et écrire viennent chez elle du même endroit : donner à quelqu'un de quoi avancer par lui-même. Dans l'Ikigaï, publié chez Mango Éditions, elle partage un cheminement intime fait de réflexions, d'expériences et de propositions concrètes.",
+  ],
+  region: 'Gard',
+  /** Other pages about her: used as schema.org `sameAs` so engines link the profiles. */
+  sameAs: [
+    'https://blogdemamank.com',
+    'https://www.mangoeditions.com/contributor/12584-kathleen-maurand-soler',
+    'https://www.editions-hatier.fr/auteur/kathleen-maurand-soler',
+  ],
   email: 'kmaurand@gmail.com',
   responseTime: '48 h',
   description:
@@ -61,6 +73,11 @@ export interface Book {
   publisher: string;
   /** ISO date; the badge reads « À paraître » until this date, « Paru » after. */
   releaseDate?: string;
+  /** Exact publication date (ISO), for structured data. Falls back to `year`. */
+  datePublished?: string;
+  isbn?: string;
+  /** Publisher's page for the book. */
+  url?: string;
   description: string;
   cover: ImageMetadata;
   coverAlt: string;
@@ -75,6 +92,9 @@ export const books: Book[] = [
     genre: 'Développement personnel',
     year: 2026,
     publisher: 'Mango Éditions',
+    datePublished: '2026-09-25',
+    isbn: '9782317041747',
+    url: 'https://www.mangoeditions.com/9782317041747-ikigai-decouvrir-et-cultiver-ce-qui-donne-sens-a-sa-vie.html',
     description:
       "Réflexions, expériences et pistes concrètes pour retrouver ce qui nous met en mouvement — chaque chapitre se referme sur un temps d'exercice.",
     cover: ikigai,

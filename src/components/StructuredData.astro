@@ -1,0 +1,71 @@
+---
+// schema.org JSON-LD: the author (Person), her books (Book) and the site (WebSite).
+// Search engines and AI assistants read this to describe her and link her books.
+import { getImage } from 'astro:assets';
+import portrait from '../assets/photos/kathleen-maurand-soler.webp';
+import { site, books, featured } from '../data/site';
+
+const abs = (path: string) => new URL(path, Astro.site).href;
+const home = abs('/');
+const personId = `${home}#autrice`;
+
+const portraitImg = await getImage({ src: portrait, width: 600, format: 'jpg' });
+const coverUrls = await Promise.all(
+  books.map(async (b) => abs((await getImage({ src: b.cover, width: 600, format: 'jpg' })).src)),
+);
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${home}#site`,
+      url: home,
+      name: site.name,
+      inLanguage: 'fr-FR',
+      about: { '@id': personId },
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: site.name,
+      givenName: 'Kathleen',
+      familyName: 'Maurand Soler',
+      jobTitle: site.jobTitle,
+      description: site.bio.join(' '),
+      url: home,
+      image: abs(portraitImg.src),
+      email: `mailto:${site.email}`,
+      homeLocation: { '@type': 'Place', name: `${site.region}, France` },
+      knowsLanguage: ['fr', 'en'],
+      knowsAbout: ['Ikigaï', 'Pédagogie Montessori', 'Développement personnel', 'Quête de sens'],
+      sameAs: site.sameAs,
+    },
+    ...books.map((b, i) => ({
+      '@type': 'Book',
+      '@id': `${home}#livre-${i + 1}`,
+      name: b.edition ? `${b.title} (${b.edition})` : b.title,
+      author: { '@id': personId },
+      publisher: { '@type': 'Organization', name: b.publisher },
+      datePublished: b.datePublished ?? String(b.year),
+      genre: b.genre,
+      inLanguage: 'fr',
+      description: b.description,
+      image: coverUrls[i],
+      ...(b.isbn && { isbn: b.isbn }),
+      ...(b.url && { url: b.url }),
+      // The featured book lists where to buy it.
+      ...(i === 0 && {
+        offers: featured.buy.map((link) => ({
+          '@type': 'Offer',
+          url: link.href,
+          availability: 'https://schema.org/InStock',
+          seller: { '@type': 'Organization', name: link.label },
+        })),
+      }),
+    })),
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />

@@ -2,6 +2,7 @@
 // Bloc A — the author: headline + lede on the left, portrait thumbnail + 120-word bio on the right.
 import { Image } from 'astro:assets';
 import portrait from '../assets/photos/kathleen-maurand-soler.webp';
+import { site } from '../data/site';
 ---
 
 <section id="autrice" class="autrice" aria-labelledby="autrice-title">
@@ -31,17 +32,7 @@ import portrait from '../assets/photos/kathleen-maurand-soler.webp';
           <p class="autrice__role">Autrice · professeure d'anglais</p>
         </div>
       </div>
-      <p>
-        Kathleen Maurand Soler écrit sur ce qui fait grandir : la transmission, la connaissance de
-        soi et la quête de sens. Ses premiers livres, publiés chez Hatier Jeunesse, sont nés de la
-        pédagogie Montessori et du désir très concret d'outiller les familles au quotidien.
-      </p>
-      <p>
-        Elle est aussi professeure d'anglais dans le Gard. Enseigner et écrire viennent chez elle du
-        même endroit : donner à quelqu'un de quoi avancer par lui-même. Dans l'Ikigaï, publié chez
-        Mango Éditions, elle partage un cheminement intime fait de réflexions, d'expériences et de
-        propositions concrètes.
-      </p>
+      {site.bio.map((para) => <p>{para}</p>)}
     </div>
   </div>
 </section>
