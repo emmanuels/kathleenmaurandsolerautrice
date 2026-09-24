@@ -38,7 +38,7 @@ import { site } from '../data/site';
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'intro mail'
-      'delay .';
+      'delay mail';
     column-gap: 56px;
     align-items: start;
   }
@@ -73,7 +73,7 @@ import { site } from '../data/site';
   .contact__mail {
     grid-area: mail;
     justify-self: start;
-    margin-top: 6px;
+    align-self: center;
     color: var(--cream);
     font-family: var(--sans);
     font-weight: 600;
