@@ -1,0 +1,119 @@
+---
+// Bloc D — contact band on ink. mailto only, no form.
+import { site } from '../data/site';
+---
+
+<section id="contact" class="contact" aria-labelledby="contact-title">
+  <div class="container contact__grid">
+    <div class="contact__intro">
+      <div class="kicker contact__kicker">Écrivons-nous</div>
+      <h2 id="contact-title" class="contact__title">
+        Une rencontre à <span class="it">imaginer&nbsp;?</span>
+      </h2>
+      <p class="contact__text">
+        <span class="only-desktop">
+          Invitation en librairie, salon, atelier, demande presse ou simple mot de lecteur —
+          l'adresse ci-contre suffit.
+        </span>
+        <span class="only-mobile">
+          Invitation en librairie, salon, atelier ou demande presse : écrivez directement.
+        </span>
+      </p>
+    </div>
+    <a class="contact__mail" href={`mailto:${site.email}`}>{site.email}</a>
+    <p class="contact__delay">Réponse sous {site.responseTime} en général.</p>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background: var(--ink);
+    color: var(--cream);
+    border-top: var(--line);
+  }
+  .contact__grid {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'intro mail'
+      'delay .';
+    column-gap: 56px;
+    align-items: start;
+  }
+  .contact__intro {
+    grid-area: intro;
+  }
+  .contact__kicker {
+    color: var(--mustard);
+  }
+  .contact__title {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 10px 0 18px;
+    color: var(--cream);
+  }
+  .contact__text {
+    margin: 0;
+    max-width: 44ch;
+    color: var(--on-ink);
+    font-size: 16.5px;
+  }
+  .contact__delay {
+    grid-area: delay;
+    margin: 18px 0 0;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--mustard);
+  }
+  .contact__mail {
+    grid-area: mail;
+    justify-self: start;
+    margin-top: 6px;
+    color: var(--cream);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    border-bottom: 2px solid var(--mustard);
+    padding-bottom: 4px;
+  }
+  .contact__mail:hover {
+    color: var(--mustard);
+  }
+
+  @media (max-width: 860px) {
+    .contact__grid {
+      padding-top: 38px;
+      padding-bottom: 38px;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'intro'
+        'mail'
+        'delay';
+    }
+    .contact__kicker {
+      font-size: 12px;
+    }
+    .contact__title {
+      font-size: 28px;
+      line-height: 1.12;
+      letter-spacing: 0;
+      margin: 8px 0 14px;
+    }
+    .contact__text {
+      font-size: 16px;
+    }
+    .contact__mail {
+      margin-top: 20px;
+    }
+    .contact__delay {
+      margin-top: 16px;
+      font-size: 13px;
+    }
+  }
+</style>

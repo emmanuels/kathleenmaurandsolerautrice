@@ -1,0 +1,58 @@
+---
+// KMS monogram + signature, patronym in Lora italic.
+---
+
+<a href="/" class="sig" aria-label="Kathleen Maurand Soler — accueil">
+  <span class="sig__mark" aria-hidden="true">KMS</span>
+  <span class="sig__name">Kathleen <span class="sig__it">Maurand Soler</span></span>
+</a>
+
+<style>
+  .sig {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .sig__mark {
+    width: 40px;
+    height: 40px;
+    border: var(--line);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 13px;
+    background: var(--moss);
+    color: var(--cream);
+  }
+  .sig__name {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 17.5px;
+    letter-spacing: -0.01em;
+  }
+  .sig__it {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  @media (max-width: 860px) {
+    .sig {
+      gap: 10px;
+    }
+    .sig__mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-size: 11px;
+    }
+    .sig__name {
+      font-size: 14px;
+    }
+  }
+</style>

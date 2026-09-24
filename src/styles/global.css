@@ -1,0 +1,128 @@
+@import '@fontsource/space-grotesk/latin-400.css';
+@import '@fontsource/space-grotesk/latin-500.css';
+@import '@fontsource/space-grotesk/latin-600.css';
+@import '@fontsource/space-grotesk/latin-700.css';
+@import '@fontsource/lora/latin-400.css';
+@import '@fontsource/lora/latin-500.css';
+@import '@fontsource/lora/latin-400-italic.css';
+@import '@fontsource/lora/latin-500-italic.css';
+
+:root {
+  --moss: #4c7a56;
+  --moss-deep: #3f6749;
+  --moss-pale: #e4edde;
+  --mustard: #d9a441;
+  --rose: #e7b7b0;
+  --cream: #fbf7ed;
+  --ink: #333a45;
+  --ink-soft: #4a5160;
+  --muted: #5c6272;
+  --rule: #ddd6c4;
+  --on-ink: #dddbd3;
+
+  --sans: 'Space Grotesk', system-ui, sans-serif;
+  --serif: 'Lora', Georgia, serif;
+
+  --container: 1080px;
+  --gutter: 40px;
+  --line: 2px solid var(--ink);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ink);
+}
+a:hover {
+  color: var(--moss);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--mustard);
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* Section kicker: small uppercase label above titles. */
+.kicker {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--moss-deep);
+}
+
+/* Lora italic word inside a Space Grotesk title. */
+.it {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.pill {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  color: var(--ink);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Copy that differs between desktop and mobile layouts. */
+.only-mobile {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  :root {
+    --gutter: 24px;
+  }
+  .only-desktop {
+    display: none;
+  }
+  .only-mobile {
+    display: revert;
+  }
+}

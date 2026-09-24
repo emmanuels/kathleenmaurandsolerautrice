@@ -1,0 +1,133 @@
+import ikigai from '../assets/covers/Ikigai.jpg';
+import activites from '../assets/covers/80-activites-familiales-Monteori-Septembre-2019-Decembre-2020.jpg';
+import ephemeride from '../assets/covers/Ephemeride-Monteori-2021.jpg';
+import calendrier2020 from '../assets/covers/Calendrier-familial-Monteori-septembre-2020-a-janvier-2022.jpg';
+import calendrier2019 from '../assets/covers/Calendrier-familial-Monteori.jpg';
+import type { ImageMetadata } from 'astro';
+
+export const site = {
+  name: 'Kathleen Maurand Soler',
+  email: 'kmaurand@gmail.com',
+  responseTime: '48 h',
+  description:
+    "Kathleen Maurand Soler écrit sur ce qui fait grandir : la transmission, la connaissance de soi et la quête de sens. Nouveau livre : Ikigaï, chez Mango Éditions.",
+};
+
+export interface BuyLink {
+  label: string;
+  href: string;
+  primary?: boolean;
+}
+
+export const featured = {
+  title: 'Ikigaï',
+  subtitle: 'découvrir et cultiver ce qui donne sens à sa vie',
+  publisher: 'Mango Éditions',
+  releaseLabel: 'En librairie dès le 25 septembre',
+  cover: ikigai,
+  coverAlt: 'Couverture du livre Ikigaï de Kathleen Maurand Soler, Mango Éditions',
+  buy: [
+    {
+      label: 'Mango Éditions',
+      href: 'https://www.mangoeditions.com/9782317041747-ikigai-decouvrir-et-cultiver-ce-qui-donne-sens-a-sa-vie.html',
+      primary: true,
+    },
+    {
+      label: 'Fnac',
+      href: 'https://www.fnac.com/a23031101/Kathleen-Maurand-Soler-Ikigai-Decouvrir-et-cultiver-ce-qui-donne-sens-a-sa-vie',
+    },
+    {
+      label: 'Cultura',
+      href: 'https://www.cultura.com/p-ikigai-decouvrir-et-cultiver-ce-qui-donne-sens-a-sa-vie-9782317041747.html',
+    },
+  ] satisfies BuyLink[],
+};
+
+export interface Book {
+  title: string;
+  /** Title shown in the compact mobile list, when shorter than `title`. */
+  shortTitle?: string;
+  /** Italic second line on desktop (edition span for the calendars). */
+  edition?: string;
+  /** Short form of `edition`, appended to the meta line on mobile. */
+  editionShort?: string;
+  genre: string;
+  year: number;
+  publisher: string;
+  /** ISO date; the badge reads « À paraître » until this date, « Paru » after. */
+  releaseDate?: string;
+  description: string;
+  cover: ImageMetadata;
+  coverAlt: string;
+  /** Portrait covers are cropped to fill; square/landscape ones are shown whole. */
+  portrait?: boolean;
+}
+
+export const books: Book[] = [
+  {
+    title: 'Ikigaï — Découvrir et cultiver ce qui donne sens à sa vie',
+    shortTitle: 'Ikigaï',
+    genre: 'Développement personnel',
+    year: 2026,
+    publisher: 'Mango Éditions',
+    releaseDate: '2026-09-25',
+    description:
+      "Réflexions, expériences et pistes concrètes pour retrouver ce qui nous met en mouvement — chaque chapitre se referme sur un temps d'exercice.",
+    cover: ikigai,
+    coverAlt: featured.coverAlt,
+    portrait: true,
+  },
+  {
+    title: '80 activités familiales Montessori',
+    genre: 'Pédagogie',
+    year: 2019,
+    publisher: 'Hatier Jeunesse',
+    description:
+      "Un an d'activités pour appliquer au quotidien, en famille, les grands principes de Maria Montessori.",
+    cover: activites,
+    coverAlt:
+      'Couverture du livre 80 activités familiales Montessori de Kathleen Maurand Soler, Hatier Jeunesse',
+  },
+  {
+    title: 'Éphéméride Montessori',
+    genre: 'Pédagogie',
+    year: 2021,
+    publisher: 'Hatier',
+    description: "365 idées d'activités Montessori pour organiser son quotidien, jour après jour.",
+    cover: ephemeride,
+    coverAlt: "Couverture de l'Éphéméride Montessori, textes de Kathleen Maurand Soler, Hatier",
+  },
+  {
+    title: 'Calendrier familial Montessori',
+    edition: 'septembre 2020 – janvier 2022',
+    editionShort: 'sept. 2020 – janv. 2022',
+    genre: 'Pédagogie',
+    year: 2020,
+    publisher: 'Hatier',
+    description:
+      "Bien s'organiser toute l'année en famille grâce à la pédagogie Montessori : plannings à compléter, défis familiaux, jeux d'observation.",
+    cover: calendrier2020,
+    coverAlt:
+      'Couverture du Calendrier familial Montessori septembre 2020 – janvier 2022, textes de Kathleen Maurand Soler, Hatier',
+  },
+  {
+    title: 'Calendrier familial Montessori',
+    edition: 'septembre 2019 – décembre 2021',
+    editionShort: 'sept. 2019 – déc. 2021',
+    genre: 'Pédagogie',
+    year: 2019,
+    publisher: 'Hatier',
+    description:
+      "La première édition du calendrier : une année d'organisation familiale, de routines et d'activités à mener ensemble.",
+    cover: calendrier2019,
+    coverAlt:
+      'Couverture du Calendrier familial Montessori septembre 2019 – décembre 2021, textes de Kathleen Maurand Soler, Hatier',
+  },
+];
+
+export const nav = [
+  { href: '/#autrice', label: 'Autrice' },
+  { href: '/#ikigai', label: 'Ikigaï' },
+  { href: '/#livres', label: 'Livres' },
+  { href: '/#contact', label: 'Contact' },
+];

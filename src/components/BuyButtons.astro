@@ -1,0 +1,76 @@
+---
+import type { BuyLink } from '../data/site';
+
+interface Props {
+  links: BuyLink[];
+}
+
+const { links } = Astro.props;
+---
+
+<ul class="buy">
+  {
+    links.map((link) => (
+      <li>
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener"
+          class:list={['buy__btn', { 'buy__btn--primary': link.primary }]}
+        >
+          {link.label}
+          <span class="sr-only"> (nouvel onglet)</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .buy {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+  }
+  .buy__btn {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    border: var(--line);
+  }
+  .buy__btn:hover {
+    color: var(--ink);
+    background: var(--moss-pale);
+  }
+  .buy__btn--primary {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .buy__btn--primary:hover {
+    color: var(--cream);
+    background: var(--moss);
+    border-color: var(--moss);
+  }
+
+  @media (max-width: 860px) {
+    .buy {
+      gap: 12px;
+      max-width: none;
+    }
+    .buy__btn {
+      font-size: 15.5px;
+      padding: 15px;
+    }
+  }
+</style>

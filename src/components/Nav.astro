@@ -1,0 +1,69 @@
+---
+import Monogram from './Monogram.astro';
+import { nav } from '../data/site';
+---
+
+<header class="nav">
+  <div class="container nav__inner">
+    <Monogram />
+    <nav aria-label="Navigation principale">
+      <ul class="nav__links">
+        {nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    background: var(--cream);
+    border-bottom: var(--line);
+  }
+  .nav__inner {
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav__links {
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .nav__links a {
+    display: block;
+    text-decoration: none;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+  }
+  .nav__links a:hover {
+    border-bottom-color: var(--moss);
+  }
+
+  /* Mobile: signature on its own row, the four anchors spread below. */
+  @media (max-width: 860px) {
+    .nav__inner {
+      height: auto;
+      flex-direction: column;
+      align-items: stretch;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+    .nav__inner > :global(.sig) {
+      height: 62px;
+    }
+    .nav__links {
+      justify-content: space-between;
+      gap: 0;
+      padding-bottom: 12px;
+    }
+    .nav__links a {
+      padding: 12px 0;
+    }
+  }
+</style>

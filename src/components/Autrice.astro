@@ -1,0 +1,115 @@
+---
+// Bloc A — the author: headline + lede on the left, 120-word bio on the right.
+---
+
+<section id="autrice" class="autrice" aria-labelledby="autrice-title">
+  <div class="container autrice__grid">
+    <div>
+      <span class="autrice__kicker">Autrice · transmission &amp; quête de sens</span>
+      <h1 id="autrice-title" class="autrice__title">Des mots qui font <span class="it">grandir.</span></h1>
+      <p class="autrice__lede">
+        Des ouvrages nés de la pédagogie Montessori, un livre sur la quête de sens, une salle de
+        classe et un blog. Le même fil : donner de quoi avancer par soi-même.
+      </p>
+    </div>
+    <div class="autrice__bio">
+      <p>
+        Kathleen Maurand Soler écrit sur ce qui fait grandir : la transmission, la connaissance de
+        soi et la quête de sens. Ses premiers livres, publiés chez Hatier Jeunesse, sont nés de la
+        pédagogie Montessori et du désir très concret d'outiller les familles au quotidien.
+      </p>
+      <p>
+        Elle est aussi professeure d'anglais dans le Gard. Enseigner et écrire viennent chez elle du
+        même endroit : donner à quelqu'un de quoi avancer par lui-même. Dans l'Ikigaï, publié chez
+        Mango Éditions, elle partage un cheminement intime fait de réflexions, d'expériences et de
+        propositions concrètes.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .autrice {
+    background: var(--cream);
+  }
+  .autrice__grid {
+    padding-top: 88px;
+    padding-bottom: 92px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 72px;
+    align-items: end;
+  }
+  .autrice__kicker {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--moss-deep);
+  }
+  .autrice__title {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 76px;
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+    margin: 24px 0 0;
+    max-width: 12ch;
+    text-wrap: balance;
+  }
+  .autrice__lede {
+    margin: 28px 0 0;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 40ch;
+    text-wrap: pretty;
+  }
+  .autrice__bio {
+    border-left: 2px dashed var(--rule);
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .autrice__bio p {
+    margin: 0;
+    font-size: 17px;
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 860px) {
+    .autrice__grid {
+      grid-template-columns: 1fr;
+      gap: 26px;
+      padding-top: 36px;
+      padding-bottom: 40px;
+    }
+    .autrice__kicker {
+      font-size: 11.5px;
+      letter-spacing: 0.12em;
+    }
+    .autrice__title {
+      font-size: 46px;
+      line-height: 0.98;
+      margin-top: 16px;
+      max-width: none;
+    }
+    .autrice__lede {
+      margin-top: 20px;
+      font-size: 17px;
+      max-width: none;
+    }
+    .autrice__bio {
+      border-left: 0;
+      border-top: 2px dashed var(--rule);
+      padding-left: 0;
+      padding-top: 24px;
+      gap: 14px;
+    }
+    .autrice__bio p {
+      font-size: 16px;
+    }
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<Base title={`Mentions légales — ${site.name}`} description={`Mentions légales du site de ${site.name}.`}>
+  <section class="legal">
+    <div class="container legal__inner">
+      <div class="kicker">Informations</div>
+      <h1 class="legal__title">Mentions <span class="it">légales.</span></h1>
+
+      <h2>Éditrice du site</h2>
+      <p>
+        {site.name}<br />
+        Contact : <a href={`mailto:${site.email}`}>{site.email}</a>
+      </p>
+
+      <h2>Hébergement</h2>
+      <p>
+        Vercel Inc.<br />
+        440 N Barranca Ave #4133, Covina, CA 91723, États-Unis<br />
+        <a href="https://vercel.com" rel="noopener">vercel.com</a>
+      </p>
+
+      <h2>Données personnelles et cookies</h2>
+      <p>
+        Ce site ne dépose aucun cookie, n'utilise aucun outil de mesure d'audience et ne collecte
+        aucune donnée personnelle. Les messages envoyés par e-mail ne servent qu'à y répondre.
+      </p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        Les textes de ce site sont la propriété de {site.name}. Les couvertures reproduites
+        appartiennent à leurs éditeurs respectifs (Mango Éditions, Hatier).
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .legal__inner {
+    padding-top: 76px;
+    padding-bottom: 92px;
+    max-width: 760px;
+  }
+  .legal__title {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 10px 0 36px;
+  }
+  .legal h2 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 20px;
+    margin: 36px 0 8px;
+  }
+  .legal p {
+    margin: 0;
+    font-size: 16.5px;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 860px) {
+    .legal__inner {
+      padding-top: 36px;
+      padding-bottom: 48px;
+    }
+    .legal__title {
+      font-size: 34px;
+    }
+  }
+</style>

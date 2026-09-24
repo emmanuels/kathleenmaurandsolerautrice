@@ -1,0 +1,32 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© {year} {site.name}</span>
+    <a href="/mentions-legales">Mentions légales</a>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--cream);
+    border-top: var(--line);
+  }
+  .footer__inner {
+    padding-top: 26px;
+    padding-bottom: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: var(--sans);
+    font-size: 13.5px;
+  }
+  .footer a {
+    text-decoration: none;
+  }
+</style>

@@ -1,0 +1,219 @@
+---
+// Bloc C — numbered bibliography. On mobile it collapses to a compact text list.
+import { Image } from 'astro:assets';
+import { books } from '../data/site';
+
+const today = new Date().toISOString().slice(0, 10);
+const isOut = (releaseDate?: string) => !releaseDate || releaseDate <= today;
+---
+
+<section id="livres" class="biblio" aria-labelledby="livres-title">
+  <div class="container biblio__inner">
+    <div class="kicker">Bibliographie</div>
+    <h2 id="livres-title" class="biblio__title">Les <span class="it">livres.</span></h2>
+
+    <ol class="biblio__list">
+      {
+        books.map((book, i) => {
+          const out = isOut(book.releaseDate);
+          const meta = `${book.genre} · ${book.year} · ${book.publisher}`;
+          return (
+            <li class="entry">
+              <span class="entry__num" aria-hidden="true">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div class:list={['entry__cover', { 'entry__cover--portrait': book.portrait }]}>
+                <Image
+                  src={book.cover}
+                  alt={book.coverAlt}
+                  widths={[176, 352]}
+                  sizes="176px"
+                />
+              </div>
+              <div>
+                <div class="entry__tags">
+                  <span class:list={['pill', out ? 'entry__badge--out' : 'entry__badge--soon']}>
+                    {out ? 'Paru' : 'À paraître'}
+                  </span>
+                  <span class="entry__meta">{meta}</span>
+                </div>
+                <h3 class="entry__title">
+                  <span class:list={{ 'only-desktop': book.shortTitle }}>{book.title}</span>
+                  {book.shortTitle && <span class="only-mobile">{book.shortTitle}</span>}
+                  {book.edition && <span class="entry__edition">{book.edition}</span>}
+                </h3>
+                <p class="entry__meta-m">
+                  {meta}
+                  {book.editionShort && ` · ${book.editionShort}`}
+                </p>
+                <p class="entry__desc">{book.description}</p>
+              </div>
+            </li>
+          );
+        })
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .biblio {
+    background: var(--cream);
+    border-top: var(--line);
+  }
+  .biblio__inner {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+  .biblio__title {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 10px 0 44px;
+  }
+  .biblio__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 76px 176px 1fr;
+    gap: 34px;
+    align-items: start;
+    padding: 40px 0;
+    border-bottom: 2px dashed var(--rule);
+  }
+  .entry:first-child {
+    padding-top: 0;
+  }
+  .entry:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  .entry__num {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 1;
+    color: var(--mustard);
+  }
+
+  /* Hatier covers are square/landscape: shown whole. Portrait covers fill the frame. */
+  .entry__cover {
+    width: 176px;
+    height: 176px;
+    border: var(--line);
+    border-radius: 6px;
+    box-shadow: 8px 8px 0 var(--ink);
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .entry__cover :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .entry__cover--portrait {
+    height: 258px;
+  }
+  .entry__cover--portrait :global(img) {
+    object-fit: cover;
+  }
+
+  .entry__tags {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .entry__tags .pill {
+    font-size: 11.5px;
+  }
+  .entry__badge--soon {
+    background: var(--mustard);
+    padding: 4px 11px;
+  }
+  .entry__badge--out {
+    background: var(--moss-pale);
+    border: 1.5px solid var(--ink);
+    padding: 3.5px 11px;
+  }
+  .entry__meta {
+    font-family: var(--sans);
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .entry__title {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 1.16;
+    letter-spacing: -0.01em;
+    margin: 14px 0 10px;
+    max-width: 30ch;
+  }
+  .entry__edition {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0;
+    margin-top: 6px;
+    color: var(--moss-deep);
+  }
+  .entry__desc {
+    margin: 0;
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    max-width: 58ch;
+  }
+  .entry__meta-m {
+    display: none;
+  }
+
+  @media (max-width: 860px) {
+    .biblio__inner {
+      padding-top: 34px;
+      padding-bottom: 34px;
+    }
+    .biblio .kicker {
+      font-size: 12px;
+    }
+    .biblio__title {
+      font-size: 28px;
+      line-height: 1.12;
+      margin: 8px 0 22px;
+    }
+    .entry {
+      display: flex;
+      gap: 16px;
+      padding: 22px 0;
+    }
+    .entry__num {
+      font-size: 26px;
+    }
+    .entry__cover,
+    .entry__tags,
+    .entry__edition,
+    .entry__desc {
+      display: none;
+    }
+    .entry__title {
+      font-size: 19px;
+      line-height: 1.2;
+      letter-spacing: 0;
+      margin: 0 0 6px;
+    }
+    .entry__meta-m {
+      display: block;
+      margin: 0;
+      font-size: 15px;
+      color: var(--ink-soft);
+    }
+  }
+</style>
