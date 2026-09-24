@@ -100,17 +100,6 @@ export const books: Book[] = [
     portrait: true,
   },
   {
-    title: '80 activités familiales Montessori',
-    genre: 'Pédagogie',
-    year: 2019,
-    publisher: 'Hatier Jeunesse',
-    description:
-      "Un an d'activités pour appliquer au quotidien, en famille, les grands principes de Maria Montessori.",
-    cover: activites,
-    coverAlt:
-      'Couverture du livre 80 activités familiales Montessori de Kathleen Maurand Soler, Hatier Jeunesse',
-  },
-  {
     title: 'Éphéméride Montessori',
     genre: 'Pédagogie',
     year: 2021,
@@ -131,6 +120,17 @@ export const books: Book[] = [
     cover: calendrier2020,
     coverAlt:
       'Couverture du Calendrier familial Montessori septembre 2020 – janvier 2022, textes de Kathleen Maurand Soler, Hatier',
+  },
+  {
+    title: '80 activités familiales Montessori',
+    genre: 'Pédagogie',
+    year: 2019,
+    publisher: 'Hatier Jeunesse',
+    description:
+      "Un an d'activités pour appliquer au quotidien, en famille, les grands principes de Maria Montessori.",
+    cover: activites,
+    coverAlt:
+      'Couverture du livre 80 activités familiales Montessori de Kathleen Maurand Soler, Hatier Jeunesse',
   },
   {
     title: 'Calendrier familial Montessori',
