@@ -94,7 +94,11 @@ import portrait from '../assets/photos/kathleen-maurand-soler.webp';
   .autrice__bio p {
     margin: 0;
     font-size: 17px;
-    text-wrap: pretty;
+    /* Justified with French hyphenation (html lang="fr") to avoid wide gaps. */
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphenate-limit-chars: 7 3 3;
   }
 
   /* Round portrait echoing the bubbles, with the site's hard ink shadow. */
