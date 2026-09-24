@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kathleen Maurand Soler — Autrice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FBF7ED;
+    --ink: #333A45;
+    --ink-soft: #656C7B;
+    --moss: #4C7A56;
+    --moss-tint: #E4EDDE;
+    --mustard: #D9A441;
+    --blush: #E7B7B0;
+    --blush-tint: #F7E6E2;
+    --line: #DDD6C4;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Lora', serif;
+    line-height: 1.65;
+  }
+  h1,h2,h3,.display{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+    margin:0;
+  }
+  a{ color:inherit; }
+  .wrap{ max-width: 1080px; margin:0 auto; padding: 0 32px; }
+
+  nav{
+    background: var(--cream);
+    border-bottom: 2px solid var(--ink);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:76px; }
+  .nav-name{ font-size:1.15rem; font-weight:700; }
+  .nav-links{ display:flex; gap:26px; list-style:none; margin:0; padding:0; }
+  .nav-links a{
+    text-decoration:none; font-family:'Space Grotesk',sans-serif;
+    font-size:0.9rem; font-weight:500; color: var(--ink);
+    padding: 6px 2px; border-bottom: 2px solid transparent;
+  }
+  .nav-links a:hover{ border-color: var(--moss); }
+
+  /* ---- Hero : collage de formes ---- */
+  .hero{ position:relative; padding: 70px 0 40px; overflow:hidden; }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+  .hero .tagline{
+    margin-top: 24px;
+    font-family:'Lora', serif;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 42ch;
+  }
+  .hero-actions{ margin-top:36px; display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    display:inline-block; padding: 14px 28px; text-decoration:none;
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:0.94rem;
+    border-radius: 999px;
+    transition: transform 0.15s ease;
+  }
+  .btn:hover{ transform: translateY(-2px); }
+  .btn-solid{ background: var(--ink); color: var(--cream); }
+  .btn-outline{ border: 2px solid var(--ink); color: var(--ink); }
+
+  .blob-field{
+    position:relative;
+    height: 380px;
+  }
+  .blob{ position:absolute; border-radius:50%; }
+  .blob-1{
+    width:230px; height:230px; top:0; right:40px;
+    background: var(--moss);
+    animation: riseFloat 8s ease-in-out infinite;
+  }
+  .blob-2{
+    width:150px; height:150px; bottom:30px; right:190px;
+    background: var(--mustard);
+    animation: riseFloat 6.5s ease-in-out infinite; animation-delay: -2.4s;
+  }
+  .blob-3{
+    width:110px; height:110px; bottom:0; right:10px;
+    background: var(--blush);
+    animation: riseFloat 9.5s ease-in-out infinite; animation-delay: -5s;
+  }
+  .blob-ring{
+    position:absolute; width:90px; height:90px; border-radius:50%;
+    border:3px solid var(--mustard);
+    top:40px; right:220px;
+    animation: riseFloat 7.5s ease-in-out infinite; animation-delay: -1s;
+  }
+
+  @keyframes riseFloat{
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(4px, -16px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  section{ padding: 84px 0; }
+  .band-moss{ background: var(--moss-tint); }
+  .band-blush{ background: var(--blush-tint); }
+  .band-ink{ background: var(--ink); color: var(--cream); }
+  .band-ink h2, .band-ink .contact-text a{ color: var(--cream); }
+
+  .section-head{ margin-bottom: 44px; }
+  .section-head .kicker{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600; font-size:0.85rem;
+    color: var(--moss);
+    margin-bottom:8px;
+  }
+  .band-ink .section-head .kicker{ color: var(--mustard); }
+  .section-head h2{ font-size: 2.1rem; }
+
+  .about-grid{ display:grid; grid-template-columns: 210px 1fr; gap:52px; align-items:start; }
+  .portrait{
+    width:210px; height:260px; border-radius: 50% 50% 46% 46% / 55% 55% 45% 45%;
+    background: linear-gradient(160deg, var(--mustard), var(--blush));
+    display:flex; align-items:center; justify-content:center;
+    color: var(--ink); font-family:'Space Grotesk',sans-serif; font-size:0.82rem; text-align:center; padding:20px;
+  }
+  .about-text p{ font-size:1.08rem; max-width:60ch; }
+  .about-text p + p{ margin-top:16px; }
+  .about-meta{ margin-top:28px; display:flex; gap:14px; flex-wrap:wrap; }
+  .pill{
+    font-family:'Space Grotesk', sans-serif; font-size:0.82rem; font-weight:500;
+    background: var(--cream); border: 1.5px solid var(--ink); border-radius:999px;
+    padding: 8px 16px;
+  }
+
+  .books{ display:grid; grid-template-columns: repeat(2,1fr); gap:26px; }
+  .book-card{
+    background: var(--cream); border-radius: 22px; padding: 32px;
+    display:flex; flex-direction:column; gap:14px;
+    box-shadow: 6px 6px 0 var(--ink);
+    border: 2px solid var(--ink);
+  }
+  .book-cover{
+    width:76px; height:104px; border-radius: 10px;
+    background: var(--moss);
+  }
+  .book-status{
+    font-family:'Space Grotesk', sans-serif; font-size:0.78rem; font-weight:600; color: var(--ink);
+    background: var(--mustard); display:inline-block; padding:3px 10px; border-radius:999px; width:fit-content;
+  }
+  .book-card h3{ font-size:1.3rem; line-height:1.28; }
+  .book-card p{ color: var(--ink-soft); font-size:0.98rem; flex-grow:1; }
+  .book-editor{
+    font-family:'Space Grotesk', sans-serif; font-size:0.85rem;
+    display:flex; justify-content:space-between; align-items:center;
+    border-top: 2px dashed var(--line); padding-top:14px;
+  }
+  .book-editor a{ font-weight:600; color: var(--moss); text-decoration:none; }
+
+  .actu-item{
+    display:grid; grid-template-columns: 130px 1fr; gap:22px;
+    padding: 22px 0; border-bottom: 2px dashed rgba(255,255,255,0.25);
+  }
+  .band-blush .actu-item{ border-bottom: 2px dashed rgba(34,40,59,0.15); }
+  .actu-date{ font-family:'Space Grotesk',sans-serif; font-size:0.88rem; }
+  .actu-item h3{ font-size:1.05rem; margin-bottom:4px; }
+  .actu-empty{ font-style:italic; opacity:0.75; }
+
+  .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:54px; align-items:start; }
+  .contact-text p{ max-width:40ch; opacity:0.85; }
+  .contact-links{ margin-top:22px; display:flex; flex-direction:column; gap:10px; }
+  .contact-links a{ font-family:'Space Grotesk',sans-serif; font-weight:600; text-decoration:underline; }
+  form{ display:flex; flex-direction:column; gap:14px; }
+  label{ font-family:'Space Grotesk',sans-serif; font-size:0.82rem; margin-bottom:6px; display:block; opacity:0.85; }
+  input, textarea{
+    width:100%; padding:13px 16px; background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.35); border-radius:14px;
+    font-family:'Lora',serif; font-size:0.96rem; color: var(--cream);
+  }
+  input::placeholder, textarea::placeholder{ color: rgba(250,246,238,0.5); }
+  textarea{ min-height:100px; resize:vertical; }
+  .form-note{ font-size:0.8rem; opacity:0.65; margin-top:-2px; }
+
+  footer{
+    padding: 34px 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:'Space Grotesk', sans-serif; font-size:0.85rem;
+  }
+
+  @media (max-width:760px){
+    .hero-grid, .about-grid, .contact-grid{ grid-template-columns:1fr; }
+    .books{ grid-template-columns:1fr; }
+    .nav-links{ display:none; }
+    .blob-field{ height:220px; }
+    .actu-item{ grid-template-columns:1fr; gap:4px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .blob, .blob-ring{ animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">Kathleen Maurand Soler</div>
+    <ul class="nav-links">
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#livres">Mes livres</a></li>
+      <li><a href="#actus">Actualités</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Des mots qui font grandir.</h1>
+      <p class="tagline">Autrice d'ouvrages sur la pédagogie Montessori et d'un livre sur la quête de sens — entre transmission, connaissance de soi et chemin de vie.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#livres">Découvrir mes livres</a>
+        <a class="btn btn-outline" href="#contact">Me contacter</a>
+      </div>
+    </div>
+    <div class="blob-field">
+      <div class="blob blob-1"></div>
+      <div class="blob-ring"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+  </div>
+</header>
+
+<section class="band-moss" id="apropos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">À propos</div>
+      <h2>Qui je suis</h2>
+    </div>
+    <div class="about-grid">
+      <div class="portrait">Photo à ajouter</div>
+      <div class="about-text">
+        <p>Kathleen Maurand Soler écrit sur ce qui fait grandir&nbsp;: la transmission, la connaissance de soi et la quête de sens. Autrice d'ouvrages autour de la pédagogie Montessori (publiés chez Hatier Jeunesse), elle partage dans son dernier livre un cheminement intime où se mêlent réflexions, expériences et propositions concrètes pour habiter sa vie avec plus de justesse.</p>
+        <div class="about-meta">
+          <span class="pill">Près de Bagnols-sur-Cèze</span>
+          <span class="pill">Montessori</span>
+          <span class="pill">Hatier Jeunesse</span>
+          <span class="pill">Mango Éditions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="livres">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Bibliographie</div>
+      <h2>Mes livres</h2>
+    </div>
+    <div class="books">
+      <div class="book-card">
+        <div class="book-cover" style="background: var(--moss);"></div>
+        <h3>80 activités familiales Montessori</h3>
+        <p>Un an d'activités pour appliquer au quotidien les grands principes de Maria Montessori en famille.</p>
+        <div class="book-editor">
+          <span>Hatier Jeunesse</span>
+          <a href="https://www.editions-hatier.fr/auteur/kathleen-maurand-soler" target="_blank" rel="noopener">Voir la fiche</a>
+        </div>
+      </div>
+      <div class="book-card">
+        <div class="book-cover" style="background: var(--blush);"></div>
+        <span class="book-status">À paraître</span>
+        <h3>Ikigaï — Découvrir et cultiver ce qui donne sens à sa vie</h3>
+        <p>Un livre sensible et profondément humain sur ce qui nous met en mouvement et donne une direction à nos vies.</p>
+        <div class="book-editor">
+          <span>Mango Éditions</span>
+          <a href="https://www.mangoeditions.com/contributor/12584-kathleen-maurand-soler" target="_blank" rel="noopener">Voir la fiche</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band-blush" id="actus">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Suivre l'actualité</div>
+      <h2>Actualités</h2>
+    </div>
+    <div class="actu-item">
+      <p class="actu-empty">Rien pour l'instant</p>
+      <p class="actu-empty">Cet espace accueillera tes dédicaces, salons, interviews et sorties à venir.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band-ink" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Écrivons-nous</div>
+      <h2>Contact</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-text">
+        <p>Pour toute demande presse, invitation à un salon ou question sur mes ouvrages, écrivez-moi directement.</p>
+        <div class="contact-links">
+          <a href="mailto:contact@kathleenmaurandsoler.fr">contact@kathleenmaurandsoler.fr</a>
+          <a href="http://www.blogdemamank.com" target="_blank" rel="noopener">blogdemamank.com</a>
+        </div>
+      </div>
+      <form onsubmit="event.preventDefault();">
+        <div>
+          <label for="name2">Nom</label>
+          <input id="name2" type="text" placeholder="Votre nom">
+        </div>
+        <div>
+          <label for="email2">E-mail</label>
+          <input id="email2" type="email" placeholder="vous@exemple.fr">
+        </div>
+        <div>
+          <label for="message2">Message</label>
+          <textarea id="message2" placeholder="Votre message"></textarea>
+        </div>
+        <div>
+          <a class="btn btn-solid" style="background:var(--mustard); color:var(--ink);" href="#" onclick="return false;">Envoyer</a>
+          <p class="form-note">Formulaire de démonstration — à connecter à un vrai service d'envoi lors de la mise en ligne.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>© Kathleen Maurand Soler</span>
+  <span>Maquette réalisée avec Claude</span>
+</footer>
+
+</body>
+</html>
