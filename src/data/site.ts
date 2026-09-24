@@ -7,10 +7,9 @@ import type { ImageMetadata } from 'astro';
 
 export const site = {
   name: 'Kathleen Maurand Soler',
-  jobTitle: "Autrice et professeure d'anglais",
+  jobTitle: 'Autrice',
   bio: [
-    "Kathleen Maurand Soler écrit sur ce qui fait grandir : la transmission, la connaissance de soi et la quête de sens. Ses premiers livres, publiés chez Hatier Jeunesse, sont nés de la pédagogie Montessori et du désir très concret d'outiller les familles au quotidien.",
-    "Elle est aussi professeure d'anglais dans le Gard. Enseigner et écrire viennent chez elle du même endroit : donner à quelqu'un de quoi avancer par lui-même. Dans l'Ikigaï, publié chez Mango Éditions, elle partage un cheminement intime fait de réflexions, d'expériences et de propositions concrètes.",
+    "Kathleen Maurand Soler écrit sur ce qui fait grandir : la transmission, la connaissance de soi et la quête de sens. Autrice d'ouvrages autour de la pédagogie Montessori (publiés chez Hatier Jeunesse), elle partage dans son dernier livre, Ikigaï, un cheminement où se mêlent réflexions, expériences et propositions concrètes pour habiter sa vie avec plus de justesse.",
   ],
   region: 'Gard',
   /** Other pages about her: used as schema.org `sameAs` so engines link the profiles. */

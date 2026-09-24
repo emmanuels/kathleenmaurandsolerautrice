@@ -12,7 +12,7 @@ export const GET: APIRoute = ({ site: siteUrl }) => {
 
   const body = `# ${site.name}
 
-> ${site.jobTitle} (${site.region}, France). Autrice d'« ${featured.title} — ${featured.subtitle} » (${featured.publisher}, 2026) et d'ouvrages sur la pédagogie Montessori (Hatier).
+> Autrice d'« ${featured.title} — ${featured.subtitle} » (${featured.publisher}, 2026) et d'ouvrages sur la pédagogie Montessori (Hatier). Vit dans le ${site.region}.
 
 ${site.bio.join('\n\n')}
 
