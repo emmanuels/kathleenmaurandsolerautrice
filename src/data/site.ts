@@ -33,7 +33,7 @@ export const featured = {
   title: 'Ikigaï',
   subtitle: 'découvrir et cultiver ce qui donne sens à sa vie',
   publisher: 'Mango Éditions',
-  releaseLabel: 'En librairie dès le 25 septembre',
+  releaseLabel: 'Disponible en librairie',
   /** Publisher's presentation (Mango Éditions). */
   intro: [
     'Bien plus qu’un concept japonais, l’ikigaï apparaît ici comme un mouvement vivant : une manière d’habiter pleinement sa vie, de retrouver son élan et de renouer avec ce qui nous met réellement en joie.',
