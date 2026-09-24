@@ -1,44 +1,94 @@
 ---
-// KMS monogram + signature, patronym in Lora italic.
+// KMS monogram + signature (patronym in Lora italic) + ginkgo leaf.
 ---
 
 <a href="/" class="sig" aria-label="Kathleen Maurand Soler — accueil">
   <span class="sig__mark" aria-hidden="true">KMS</span>
   <span class="sig__name">Kathleen <span class="sig__it">Maurand Soler</span></span>
+  <svg class="sig__leaf" viewBox="0 0 64 64" aria-hidden="true">
+    <path
+      class="sig__leaf-blade"
+      d="M32 38C24 32 10 25 5 14 12 6 22 3 29 5L32 19 35 5C42 3 52 6 59 14 54 25 40 32 32 38Z"
+    ></path>
+    <path
+      class="sig__leaf-veins"
+      d="M32 36 13 13M32 36 20 8M32 36 27 7M32 36 37 7M32 36 44 8M32 36 51 13"
+    ></path>
+    <path class="sig__leaf-stem" d="M32 37C32 46 30 54 25 61"></path>
+  </svg>
 </a>
 
 <style>
   .sig {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     text-decoration: none;
     color: var(--ink);
   }
   .sig__mark {
-    width: 40px;
-    height: 40px;
+    flex: none;
+    width: 48px;
+    height: 48px;
     border: var(--line);
-    border-radius: 12px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--sans);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 15px;
     background: var(--moss);
     color: var(--cream);
   }
   .sig__name {
     font-family: var(--sans);
     font-weight: 600;
-    font-size: 17.5px;
-    letter-spacing: -0.01em;
+    font-size: 35px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
   }
   .sig__it {
     font-family: var(--serif);
     font-style: italic;
     font-weight: 500;
+    letter-spacing: 0;
+  }
+  .sig__leaf {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    margin-left: -4px;
+    transform: rotate(18deg);
+  }
+  .sig__leaf-blade {
+    fill: var(--moss);
+    stroke: var(--ink);
+    stroke-width: 2;
+    stroke-linejoin: round;
+  }
+  .sig__leaf-veins {
+    fill: none;
+    stroke: var(--cream);
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    opacity: 0.55;
+  }
+  .sig__leaf-stem {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+  }
+  .sig:hover .sig__leaf {
+    transform: rotate(8deg);
+    transition: transform 0.4s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sig:hover .sig__leaf {
+      transform: rotate(18deg);
+    }
   }
 
   @media (max-width: 860px) {
@@ -52,7 +102,12 @@
       font-size: 11px;
     }
     .sig__name {
-      font-size: 14px;
+      font-size: 22px;
+    }
+    .sig__leaf {
+      width: 30px;
+      height: 30px;
+      margin-left: -2px;
     }
   }
 </style>

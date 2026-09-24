@@ -1,5 +1,5 @@
 ---
-// Bloc A — the author: headline + lede on the left, portrait thumbnail + 120-word bio on the right.
+// Bloc A — the author: headline on the left, portrait thumbnail + 120-word bio on the right.
 import { Image } from 'astro:assets';
 import portrait from '../assets/photos/kathleen-maurand-soler.webp';
 import { site } from '../data/site';
@@ -7,29 +7,24 @@ import { site } from '../data/site';
 
 <section id="autrice" class="autrice" aria-labelledby="autrice-title">
   <div class="container autrice__grid">
-    <div>
-      <span class="autrice__kicker">Autrice · transmission &amp; quête de sens</span>
-      <h1 id="autrice-title" class="autrice__title">Des mots qui font <span class="it">grandir.</span></h1>
-      <p class="autrice__lede">
-        Des ouvrages nés de la pédagogie Montessori, un livre sur la quête de sens, une salle de
-        classe et un blog. Le même fil : donner de quoi avancer par soi-même.
-      </p>
-    </div>
+    <h1 id="autrice-title" class="autrice__title">Des mots qui font <span class="it">grandir.</span></h1>
     <div class="autrice__bio">
       <div class="autrice__id">
         <div class="autrice__photo">
           <span class="autrice__bubble" aria-hidden="true"></span>
-          <Image
-            src={portrait}
-            alt="Portrait de Kathleen Maurand Soler, souriante, devant un olivier"
-            widths={[96, 120, 192, 240]}
-            sizes="(max-width: 860px) 96px, 120px"
-            loading="eager"
-          />
+          <div class="autrice__frame">
+            <Image
+              src={portrait}
+              alt="Portrait de Kathleen Maurand Soler, souriante, devant un olivier"
+              widths={[96, 120, 192, 240]}
+              sizes="(max-width: 860px) 96px, 120px"
+              loading="eager"
+            />
+          </div>
         </div>
         <div>
           <p class="autrice__name">Kathleen <span class="it">Maurand Soler</span></p>
-          <p class="autrice__role">Autrice · professeure d'anglais</p>
+          <p class="autrice__role">Autrice · transmission &amp; quête de sens</p>
         </div>
       </div>
       {site.bio.map((para) => <p>{para}</p>)}
@@ -47,15 +42,7 @@ import { site } from '../data/site';
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
     gap: 72px;
-    align-items: end;
-  }
-  .autrice__kicker {
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 12.5px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--moss-deep);
+    align-items: center;
   }
   .autrice__title {
     font-family: var(--sans);
@@ -63,17 +50,9 @@ import { site } from '../data/site';
     font-size: 76px;
     line-height: 0.96;
     letter-spacing: -0.03em;
-    margin: 24px 0 0;
+    margin: 0;
     max-width: 12ch;
     text-wrap: balance;
-  }
-  .autrice__lede {
-    margin: 28px 0 0;
-    font-size: 19px;
-    line-height: 1.55;
-    color: var(--muted);
-    max-width: 40ch;
-    text-wrap: pretty;
   }
   .autrice__bio {
     border-left: 2px dashed var(--rule);
@@ -105,22 +84,35 @@ import { site } from '../data/site';
     width: 120px;
     height: 120px;
   }
-  .autrice__photo :global(img) {
+  .autrice__frame {
     position: relative;
+    width: 100%;
+    height: 100%;
+    border: var(--line);
+    border-radius: 50%;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  /* Translucent moss veil to tie the photo to the palette. */
+  .autrice__frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--moss);
+    opacity: 0.28;
+  }
+  .autrice__frame :global(img) {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 50% 40%;
-    border: var(--line);
-    border-radius: 50%;
-    box-shadow: 6px 6px 0 var(--ink);
   }
   .autrice__bubble {
     position: absolute;
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: var(--mustard);
+    background: var(--rose);
     top: -6px;
     right: -10px;
     z-index: 1;
@@ -133,6 +125,10 @@ import { site } from '../data/site';
   }
   .autrice__name .it {
     font-weight: 500;
+  }
+  .autrice__bio .autrice__name,
+  .autrice__bio .autrice__role {
+    text-align: left;
   }
   .autrice__bio .autrice__role {
     margin-top: 4px;
@@ -148,19 +144,9 @@ import { site } from '../data/site';
       padding-top: 36px;
       padding-bottom: 40px;
     }
-    .autrice__kicker {
-      font-size: 11.5px;
-      letter-spacing: 0.12em;
-    }
     .autrice__title {
       font-size: 46px;
       line-height: 0.98;
-      margin-top: 16px;
-      max-width: none;
-    }
-    .autrice__lede {
-      margin-top: 20px;
-      font-size: 17px;
       max-width: none;
     }
     .autrice__bio {
@@ -181,7 +167,7 @@ import { site } from '../data/site';
       width: 96px;
       height: 96px;
     }
-    .autrice__photo :global(img) {
+    .autrice__frame {
       box-shadow: 5px 5px 0 var(--ink);
     }
     .autrice__bubble {

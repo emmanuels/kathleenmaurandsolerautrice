@@ -21,7 +21,6 @@ import { site } from '../data/site';
       </p>
     </div>
     <a class="contact__mail" href={`mailto:${site.email}`}>{site.email}</a>
-    <p class="contact__delay">Réponse sous {site.responseTime} en général.</p>
   </div>
 </section>
 
@@ -37,10 +36,9 @@ import { site } from '../data/site';
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      'intro mail'
-      'delay mail';
+      'intro mail';
     column-gap: 56px;
-    align-items: start;
+    align-items: center;
   }
   .contact__intro {
     grid-area: intro;
@@ -62,13 +60,6 @@ import { site } from '../data/site';
     max-width: 44ch;
     color: var(--on-ink);
     font-size: 16.5px;
-  }
-  .contact__delay {
-    grid-area: delay;
-    margin: 18px 0 0;
-    font-family: var(--sans);
-    font-size: 14px;
-    color: var(--mustard);
   }
   .contact__mail {
     grid-area: mail;
@@ -93,8 +84,7 @@ import { site } from '../data/site';
       grid-template-columns: 1fr;
       grid-template-areas:
         'intro'
-        'mail'
-        'delay';
+        'mail';
     }
     .contact__kicker {
       font-size: 12px;
@@ -110,10 +100,6 @@ import { site } from '../data/site';
     }
     .contact__mail {
       margin-top: 20px;
-    }
-    .contact__delay {
-      margin-top: 16px;
-      font-size: 13px;
     }
   }
 </style>

@@ -19,7 +19,6 @@ export const site = {
     'https://www.editions-hatier.fr/auteur/kathleen-maurand-soler',
   ],
   email: 'kmaurand@gmail.com',
-  responseTime: '48 h',
   description:
     "Kathleen Maurand Soler écrit sur ce qui fait grandir : la transmission, la connaissance de soi et la quête de sens. Nouveau livre : Ikigaï, chez Mango Éditions.",
 };
