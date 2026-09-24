@@ -15,7 +15,6 @@ export const site = {
   region: 'Gard',
   /** Other pages about her: used as schema.org `sameAs` so engines link the profiles. */
   sameAs: [
-    'https://blogdemamank.com',
     'https://www.mangoeditions.com/contributor/12584-kathleen-maurand-soler',
     'https://www.editions-hatier.fr/auteur/kathleen-maurand-soler',
   ],
