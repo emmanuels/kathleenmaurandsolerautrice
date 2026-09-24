@@ -40,7 +40,7 @@ import { featured } from '../data/site';
       </div>
 
       <div class="book__buy">
-        <BuyButtons links={featured.buy} row />
+        <BuyButtons links={featured.buy} />
       </div>
     </div>
   </div>
@@ -117,8 +117,14 @@ import { featured } from '../data/site';
     -webkit-hyphens: auto;
     hyphenate-limit-chars: 7 3 3;
   }
+  /* Buttons stacked, centred under the cover. */
   .book__buy {
     margin-top: 8px;
+    display: flex;
+    justify-content: center;
+  }
+  .book__buy :global(.buy) {
+    width: 100%;
   }
 
   .book__visual {
