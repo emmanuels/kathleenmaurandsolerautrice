@@ -24,6 +24,11 @@ export const featured = {
   subtitle: 'découvrir et cultiver ce qui donne sens à sa vie',
   publisher: 'Mango Éditions',
   releaseLabel: 'En librairie dès le 25 septembre',
+  /** Publisher's presentation (Mango Éditions). */
+  intro: [
+    'Bien plus qu’un concept japonais, l’ikigaï apparaît ici comme un mouvement vivant : une manière d’habiter pleinement sa vie, de retrouver son élan et de renouer avec ce qui nous met réellement en joie.',
+    'À travers un chemin structuré en étapes – de l’éveil à l’action, de l’exploration intime à l’ancrage concret –, elle propose une expérience immersive mêlant récits personnels, exercices pratiques, mantras et respirations poétiques.',
+  ],
   cover: ikigai,
   coverAlt: 'Couverture du livre Ikigaï de Kathleen Maurand Soler, Mango Éditions',
   buy: [

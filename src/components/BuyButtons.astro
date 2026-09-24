@@ -3,12 +3,14 @@ import type { BuyLink } from '../data/site';
 
 interface Props {
   links: BuyLink[];
+  /** Side by side on desktop instead of stacked. Always stacked on mobile. */
+  row?: boolean;
 }
 
-const { links } = Astro.props;
+const { links, row = false } = Astro.props;
 ---
 
-<ul class="buy">
+<ul class:list={['buy', { 'buy--row': row }]}>
   {
     links.map((link) => (
       <li>
@@ -35,6 +37,18 @@ const { links } = Astro.props;
     flex-direction: column;
     gap: 10px;
     max-width: 300px;
+  }
+  .buy--row {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+  }
+  .buy--row li {
+    flex: 1;
+  }
+  .buy--row .buy__btn {
+    padding: 13px 16px;
+    white-space: nowrap;
   }
   .buy__btn {
     display: block;
@@ -68,7 +82,11 @@ const { links } = Astro.props;
       gap: 12px;
       max-width: none;
     }
-    .buy__btn {
+    .buy--row {
+      flex-direction: column;
+    }
+    .buy__btn,
+    .buy--row .buy__btn {
       font-size: 15.5px;
       padding: 15px;
     }

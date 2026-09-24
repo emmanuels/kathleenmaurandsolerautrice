@@ -1,5 +1,6 @@
 ---
-// Bloc B — the new book: badge, title, buy buttons, cover in a cloud of floating bubbles.
+// Bloc B — the new book: badge, title and publisher's intro on the left;
+// cover in a cloud of floating bubbles with the buy buttons on the right.
 import { Image } from 'astro:assets';
 import BuyButtons from './BuyButtons.astro';
 import { featured } from '../data/site';
@@ -7,35 +8,40 @@ import { featured } from '../data/site';
 
 <section id="ikigai" class="book" aria-labelledby="ikigai-title">
   <div class="container book__grid">
-    <div class="book__head">
+    <div class="book__text">
       <div class="book__tags">
         <span class="pill book__badge">Nouveau livre</span>
         <span class="book__release">{featured.releaseLabel}</span>
       </div>
       <h2 id="ikigai-title" class="book__title">{featured.title}</h2>
       <p class="book__subtitle">{featured.subtitle}</p>
-    </div>
-
-    <div class="book__visual">
-      <span class="bubble bubble--1" aria-hidden="true"></span>
-      <span class="bubble bubble--2" aria-hidden="true"></span>
-      <span class="bubble bubble--3" aria-hidden="true"></span>
-      <span class="bubble bubble--4" aria-hidden="true"></span>
-      <span class="bubble bubble--5" aria-hidden="true"></span>
-      <div class="book__cover">
-        <Image
-          src={featured.cover}
-          alt={featured.coverAlt}
-          widths={[184, 272, 368, 544]}
-          sizes="(max-width: 860px) 184px, 272px"
-          loading="eager"
-        />
+      <p class="book__publisher">{featured.publisher}</p>
+      <div class="book__intro">
+        {featured.intro.map((para) => <p>{para}</p>)}
       </div>
     </div>
 
-    <div class="book__buy">
-      <p class="book__publisher">{featured.publisher}</p>
-      <BuyButtons links={featured.buy} />
+    <div class="book__side">
+      <div class="book__visual">
+        <span class="bubble bubble--1" aria-hidden="true"></span>
+        <span class="bubble bubble--2" aria-hidden="true"></span>
+        <span class="bubble bubble--3" aria-hidden="true"></span>
+        <span class="bubble bubble--4" aria-hidden="true"></span>
+        <span class="bubble bubble--5" aria-hidden="true"></span>
+        <div class="book__cover">
+          <Image
+            src={featured.cover}
+            alt={featured.coverAlt}
+            widths={[184, 272, 368, 544]}
+            sizes="(max-width: 860px) 184px, 272px"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <div class="book__buy">
+        <BuyButtons links={featured.buy} row />
+      </div>
     </div>
   </div>
 </section>
@@ -45,29 +51,15 @@ import { featured } from '../data/site';
     background: var(--moss-pale);
     border-top: var(--line);
   }
-  /* Desktop: text column vertically centred beside the visual.
-     Mobile: head → cover → buy buttons. */
+  /* Desktop: text left, cover + buttons right, both vertically centred.
+     Mobile: text → cover → buy buttons. */
   .book__grid {
     padding-top: 80px;
     padding-bottom: 80px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr auto auto 1fr;
-    grid-template-areas:
-      '.    visual'
-      'head visual'
-      'buy  visual'
-      '.    visual';
-    column-gap: 56px;
-  }
-  .book__head {
-    grid-area: head;
-  }
-  .book__visual {
-    grid-area: visual;
-  }
-  .book__buy {
-    grid-area: buy;
+    gap: 56px;
+    align-items: center;
   }
 
   .book__tags {
@@ -104,15 +96,34 @@ import { featured } from '../data/site';
     max-width: 22ch;
   }
   .book__publisher {
-    margin: 18px 0 32px;
+    margin: 18px 0 0;
     font-family: var(--sans);
     font-weight: 600;
     font-size: 14.5px;
   }
+  .book__intro {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 2px dashed var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .book__intro p {
+    margin: 0;
+    font-size: 17px;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphenate-limit-chars: 7 3 3;
+  }
+  .book__buy {
+    margin-top: 8px;
+  }
 
   .book__visual {
     position: relative;
-    height: 500px;
+    height: 460px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -206,11 +217,7 @@ import { featured } from '../data/site';
       padding-top: 36px;
       padding-bottom: 40px;
       grid-template-columns: 1fr;
-      grid-template-rows: none;
-      grid-template-areas:
-        'head'
-        'visual'
-        'buy';
+      gap: 0;
     }
     .book__tags {
       gap: 10px;
@@ -242,8 +249,18 @@ import { featured } from '../data/site';
       box-shadow: 9px 9px 0 var(--ink);
     }
     .book__publisher {
-      margin: 22px 0 14px;
+      margin-top: 14px;
       font-size: 13.5px;
+    }
+    .book__intro {
+      margin-top: 22px;
+      padding-top: 20px;
+    }
+    .book__intro p {
+      font-size: 16px;
+    }
+    .book__buy {
+      margin-top: 22px;
     }
     .bubble--1 {
       width: 170px;
