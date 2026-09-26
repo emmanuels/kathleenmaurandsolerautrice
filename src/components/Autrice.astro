@@ -12,7 +12,7 @@ import { site } from '../data/site';
       <span class="bubble bubble--3" aria-hidden="true"></span>
       <span class="bubble bubble--4" aria-hidden="true"></span>
       <span class="bubble bubble--5" aria-hidden="true"></span>
-      <h1 id="autrice-title" class="autrice__title">Des mots qui font <span class="it">grandir.</span></h1>
+      <h1 id="autrice-title" class="autrice__title">Des mots<br class="only-desktop" /> qui font<br class="only-desktop" /> <span class="it">grandir.</span></h1>
     </div>
     <div class="autrice__bio">
       {site.bio.map((para) => <p>{para}</p>)}
@@ -58,7 +58,9 @@ import { site } from '../data/site';
     min-height: 340px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* Title pushed right, into the big pale bubble. */
+    justify-content: flex-end;
+    padding-right: 16px;
   }
   .autrice__title {
     position: relative;
@@ -69,8 +71,8 @@ import { site } from '../data/site';
     line-height: 0.96;
     letter-spacing: -0.03em;
     margin: 0;
-    max-width: 9ch;
-    text-wrap: balance;
+    /* Explicit line breaks on desktop so the box hugs the text and can sit right. */
+    white-space: nowrap;
   }
 
   /* Same floating bubbles as the Ikigaï block, each on its own period and phase. */
@@ -101,8 +103,8 @@ import { site } from '../data/site';
     width: 80px;
     height: 80px;
     background: var(--rose);
-    bottom: 10px;
-    right: 40px;
+    bottom: -26px;
+    right: 24px;
     --dur: 9.4s;
     --delay: -5s;
   }
@@ -154,10 +156,15 @@ import { site } from '../data/site';
     }
     .autrice__visual {
       min-height: 230px;
+      justify-content: center;
+      padding-right: 0;
     }
     .autrice__title {
       font-size: 46px;
       line-height: 0.98;
+      white-space: normal;
+      max-width: 9ch;
+      text-wrap: balance;
     }
     .autrice__bio {
       border-right: 0;
@@ -183,6 +190,7 @@ import { site } from '../data/site';
     .bubble--3 {
       width: 52px;
       height: 52px;
+      bottom: 10px;
       right: 20px;
     }
     .bubble--4 {
