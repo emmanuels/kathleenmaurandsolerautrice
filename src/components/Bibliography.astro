@@ -1,6 +1,7 @@
 ---
 // Bloc C — numbered bibliography. On mobile it collapses to a compact text list.
 import { Image } from 'astro:assets';
+import BuyButtons from './BuyButtons.astro';
 import { books } from '../data/site';
 
 const today = new Date().toISOString().slice(0, 10);
@@ -47,6 +48,11 @@ const isOut = (releaseDate?: string) => !releaseDate || releaseDate <= today;
                   {book.editionShort && ` · ${book.editionShort}`}
                 </p>
                 <p class="entry__desc">{book.description}</p>
+                {book.buy && (
+                  <div class="entry__buy">
+                    <BuyButtons links={book.buy} small />
+                  </div>
+                )}
               </div>
             </li>
           );
@@ -175,6 +181,9 @@ const isOut = (releaseDate?: string) => !releaseDate || releaseDate <= today;
   .entry__meta-m {
     display: none;
   }
+  .entry__buy {
+    margin-top: 16px;
+  }
 
   @media (max-width: 860px) {
     .biblio__inner {
@@ -208,6 +217,9 @@ const isOut = (releaseDate?: string) => !releaseDate || releaseDate <= today;
       line-height: 1.2;
       letter-spacing: 0;
       margin: 0 0 6px;
+    }
+    .entry__buy {
+      margin-top: 10px;
     }
     .entry__meta-m {
       display: block;

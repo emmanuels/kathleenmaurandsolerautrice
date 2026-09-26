@@ -3,12 +3,14 @@ import type { BuyLink } from '../data/site';
 
 interface Props {
   links: BuyLink[];
+  /** Compact variant: smaller pills laid out in a row (used in the bibliography). */
+  small?: boolean;
 }
 
-const { links } = Astro.props;
+const { links, small = false } = Astro.props;
 ---
 
-<ul class="buy">
+<ul class:list={['buy', { 'buy--sm': small }]}>
   {
     links.map((link) => (
       <li>
@@ -63,6 +65,17 @@ const { links } = Astro.props;
     border-color: var(--moss);
   }
 
+  .buy--sm {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: none;
+  }
+  .buy--sm .buy__btn {
+    font-size: 13px;
+    padding: 7px 16px;
+  }
+
   @media (max-width: 860px) {
     .buy {
       gap: 12px;
@@ -71,6 +84,10 @@ const { links } = Astro.props;
     .buy__btn {
       font-size: 15.5px;
       padding: 15px;
+    }
+    .buy--sm .buy__btn {
+      font-size: 13px;
+      padding: 7px 16px;
     }
   }
 </style>

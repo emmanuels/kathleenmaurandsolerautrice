@@ -82,6 +82,8 @@ export interface Book {
   coverAlt: string;
   /** Portrait covers are cropped to fill; square/landscape ones are shown whole. */
   portrait?: boolean;
+  /** Where the book can still be bought (small buttons under the description). */
+  buy?: BuyLink[];
 }
 
 export const books: Book[] = [
@@ -108,6 +110,12 @@ export const books: Book[] = [
     description: "365 idées d'activités Montessori pour organiser son quotidien, jour après jour.",
     cover: ephemeride,
     coverAlt: "Couverture de l'Éphéméride Montessori, textes de Kathleen Maurand Soler, Hatier",
+    buy: [
+      {
+        label: 'Acheter à la Fnac',
+        href: 'https://www.fnac.com/a14903584/Kathleen-Maurand-Soler-Ephemeride-Montessori-2021',
+      },
+    ],
   },
   {
     title: 'Calendrier familial Montessori',
