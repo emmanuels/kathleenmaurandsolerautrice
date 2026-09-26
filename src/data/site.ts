@@ -9,7 +9,8 @@ export const site = {
   name: 'Kathleen Maurand Soler',
   jobTitle: 'Autrice',
   bio: [
-    "Kathleen Maurand Soler écrit sur ce qui fait grandir : la transmission, la connaissance de soi et la quête de sens. Autrice d'ouvrages autour de la pédagogie Montessori (publiés chez Hatier Jeunesse), elle partage dans son dernier livre, Ikigaï, un cheminement où se mêlent réflexions, expériences et propositions concrètes pour habiter sa vie avec plus de justesse.",
+    'Kathleen Maurand Soler écrit sur ce qui fait grandir : la transmission, la connaissance de soi et la quête de sens.',
+    'Autrice de plusieurs ouvrages publiés chez Hatier Jeunesse, elle partage dans son dernier livre, Ikigaï découvrir et cultiver ce qui donne du sens à sa vie, un cheminement où se mêlent réflexions, expériences et propositions concrètes pour habiter sa vie avec plus de justesse.',
   ],
   region: 'Gard',
   /** Other pages about her: used as schema.org `sameAs` so engines link the profiles. */
@@ -30,7 +31,7 @@ export interface BuyLink {
 
 export const featured = {
   title: 'Ikigaï',
-  subtitle: 'découvrir et cultiver ce qui donne sens à sa vie',
+  subtitle: 'découvrir et cultiver ce qui donne du sens à sa vie',
   publisher: 'Mango Éditions',
   releaseLabel: 'Disponible en librairie',
   /** Publisher's presentation (Mango Éditions). */
@@ -88,7 +89,7 @@ export interface Book {
 
 export const books: Book[] = [
   {
-    title: 'Ikigaï — Découvrir et cultiver ce qui donne sens à sa vie',
+    title: 'Ikigaï — Découvrir et cultiver ce qui donne du sens à sa vie',
     shortTitle: 'Ikigaï',
     genre: 'Développement personnel',
     year: 2026,
