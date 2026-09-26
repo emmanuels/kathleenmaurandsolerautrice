@@ -160,6 +160,6 @@ export const books: Book[] = [
 export const nav = [
   { href: '/#autrice', label: 'Autrice' },
   { href: '/#ikigai', label: 'Ikigaï' },
-  { href: '/#livres', label: 'Livres' },
+  { href: '/#livres', label: 'Publications' },
   { href: '/#contact', label: 'Contact' },
 ];
