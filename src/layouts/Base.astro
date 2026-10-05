@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Analytics from '@vercel/analytics/astro';
 import { site } from '../data/site';
 
 interface Props {
@@ -49,5 +50,7 @@ const ogImage = new URL('/og.png', Astro.site);
       <slot />
     </main>
     <Footer />
+    <!-- Vercel Web Analytics: cookie-free page views, enabled in the Vercel dashboard. -->
+    <Analytics />
   </body>
 </html>
