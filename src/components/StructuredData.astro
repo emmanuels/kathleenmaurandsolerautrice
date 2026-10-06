@@ -2,7 +2,7 @@
 // schema.org JSON-LD: the author (Person), her books (Book) and the site (WebSite).
 // Search engines and AI assistants read this to describe her and link her books.
 import { getImage } from 'astro:assets';
-import portrait from '../assets/photos/kathleen-maurand-soler.webp';
+import portrait from '../assets/photos/kathleen-portrait-ikigai.jpg';
 import { site, books, featured } from '../data/site';
 
 const abs = (path: string) => new URL(path, Astro.site).href;
@@ -32,7 +32,7 @@ const graph = {
       givenName: 'Kathleen',
       familyName: 'Maurand Soler',
       jobTitle: site.jobTitle,
-      description: site.bio.join(' '),
+      description: site.summary,
       url: home,
       image: abs(portraitImg.src),
       email: `mailto:${site.email}`,

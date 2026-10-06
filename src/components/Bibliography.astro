@@ -1,5 +1,5 @@
 ---
-// Bloc C — numbered bibliography. On mobile it collapses to a compact text list.
+// Bloc C — bibliography. On mobile it collapses to a compact text list.
 import { Image } from 'astro:assets';
 import BuyButtons from './BuyButtons.astro';
 import { books } from '../data/site';
@@ -11,18 +11,15 @@ const isOut = (releaseDate?: string) => !releaseDate || releaseDate <= today;
 <section id="livres" class="biblio" aria-labelledby="livres-title">
   <div class="container biblio__inner">
     <div class="kicker">Bibliographie</div>
-    <h2 id="livres-title" class="biblio__title">Les <span class="it">publications.</span></h2>
+    <h2 id="livres-title" class="biblio__title">Mes <span class="it">publications.</span></h2>
 
     <ol class="biblio__list">
       {
-        books.map((book, i) => {
+        books.map((book) => {
           const out = isOut(book.releaseDate);
           const meta = `${book.genre} · ${book.year} · ${book.publisher}`;
           return (
             <li class="entry">
-              <span class="entry__num" aria-hidden="true">
-                {String(i + 1).padStart(2, '0')}
-              </span>
               <div class:list={['entry__cover', { 'entry__cover--portrait': book.portrait }]}>
                 <Image
                   src={book.cover}
@@ -87,7 +84,7 @@ const isOut = (releaseDate?: string) => !releaseDate || releaseDate <= today;
 
   .entry {
     display: grid;
-    grid-template-columns: 76px 176px 1fr;
+    grid-template-columns: 176px 1fr;
     gap: 34px;
     align-items: start;
     padding: 40px 0;
@@ -100,21 +97,13 @@ const isOut = (releaseDate?: string) => !releaseDate || releaseDate <= today;
     padding-bottom: 0;
     border-bottom: 0;
   }
-  .entry__num {
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 38px;
-    line-height: 1;
-    color: var(--mustard);
-  }
-
   /* Hatier covers are square/landscape: shown whole. Portrait covers fill the frame. */
   .entry__cover {
     width: 176px;
     height: 176px;
-    border: var(--line);
+    border: var(--cover-edge);
     border-radius: 6px;
-    box-shadow: 8px 8px 0 var(--ink);
+    box-shadow: var(--cover-shadow);
     overflow: hidden;
     background: var(--cream);
   }
@@ -199,12 +188,8 @@ const isOut = (releaseDate?: string) => !releaseDate || releaseDate <= today;
       margin: 8px 0 22px;
     }
     .entry {
-      display: flex;
-      gap: 16px;
+      display: block;
       padding: 22px 0;
-    }
-    .entry__num {
-      font-size: 26px;
     }
     .entry__cover,
     .entry__tags,

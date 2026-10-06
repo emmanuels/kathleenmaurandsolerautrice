@@ -14,6 +14,10 @@ export const GET: APIRoute = ({ site: siteUrl }) => {
 
 > Autrice d'« ${featured.title} — ${featured.subtitle} » (${featured.publisher}, 2026) et d'ouvrages sur la pédagogie Montessori (Hatier). Vit dans le ${site.region}.
 
+${site.summary}
+
+## À propos, par l’autrice
+
 ${site.bio.join('\n\n')}
 
 ## Nouveau livre : ${featured.title}

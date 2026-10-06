@@ -8,10 +8,14 @@ import type { ImageMetadata } from 'astro';
 export const site = {
   name: 'Kathleen Maurand Soler',
   jobTitle: 'Autrice',
+  /** Bio shown on the page, in Kathleen's own voice. */
   bio: [
-    'Kathleen Maurand Soler écrit sur ce qui fait grandir : la transmission, la connaissance de soi et la quête de sens.',
-    'Autrice de plusieurs ouvrages publiés chez Hatier Jeunesse, elle partage dans son dernier livre, Ikigaï découvrir et cultiver ce qui donne du sens à sa vie, un cheminement où se mêlent réflexions, expériences et propositions concrètes pour habiter sa vie avec plus de justesse.',
+    'Depuis toujours, les mots me touchent, par leur beauté autant que par ce qu’ils révèlent. Enfant, j’ai dévoré les livres, puis noté dans un carnet les citations qui résonnaient en moi : elles me servaient de repères, et mettaient des mots sur ce que je vivais.',
+    'Ces mots qui m’ont portée, j’ai voulu les partager : d’abord dans un blog, puis dans des ouvrages pédagogiques, et enfin dans un livre où je raconte mon cheminement vers une vie plus juste, guidée par le sens. Un fil relie tout cela : je crois au potentiel humain, et au pouvoir que chacun a de transformer sa vie, pas à pas.',
   ],
+  /** Third-person summary for search engines and AI assistants (structured data, llms.txt). */
+  summary:
+    'Kathleen Maurand Soler écrit sur ce qui fait grandir : la transmission, la connaissance de soi et la quête de sens. Autrice de plusieurs ouvrages publiés chez Hatier Jeunesse, elle partage dans son dernier livre, Ikigaï, découvrir et cultiver ce qui donne du sens à sa vie (Mango Éditions, 2026), un cheminement où se mêlent réflexions, expériences et propositions concrètes pour habiter sa vie avec plus de justesse.',
   region: 'Gard',
   /** Other pages about her: used as schema.org `sameAs` so engines link the profiles. */
   sameAs: [
@@ -33,7 +37,7 @@ export const featured = {
   title: 'Ikigaï',
   subtitle: 'découvrir et cultiver ce qui donne du sens à sa vie',
   publisher: 'Mango Éditions',
-  releaseLabel: 'Disponible en librairie',
+  releaseLabel: 'Paru le 25 septembre 2026',
   /** Publisher's presentation (Mango Éditions). */
   intro: [
     'La clé d’une vie plus alignée ne se trouverait-elle pas déjà en nous ? Un murmure discret, une intuition légère, un élan que l’on a parfois appris à faire taire… C’est là que commence l’ikigaï.',
@@ -158,8 +162,8 @@ export const books: Book[] = [
 ];
 
 export const nav = [
-  { href: '/#autrice', label: 'Autrice' },
+  { href: '/#autrice', label: 'À propos' },
   { href: '/#ikigai', label: 'Ikigaï' },
-  { href: '/#livres', label: 'Publications' },
+  { href: '/#livres', label: 'Mes publications' },
   { href: '/#contact', label: 'Contact' },
 ];

@@ -1,6 +1,7 @@
 ---
 // Bloc B — the new book: badge, title and publisher's intro on the left;
 // cover in a cloud of floating bubbles with the buy buttons on the right.
+// Mobile order: title → cover + buttons → intro, so the cover shows first.
 import { Image } from 'astro:assets';
 import BuyButtons from './BuyButtons.astro';
 import { featured } from '../data/site';
@@ -8,7 +9,7 @@ import { featured } from '../data/site';
 
 <section id="ikigai" class="book" aria-labelledby="ikigai-title">
   <div class="container book__grid">
-    <div class="book__text">
+    <div class="book__head">
       <div class="book__tags">
         <span class="pill book__badge">Nouveau livre</span>
         <span class="book__release">{featured.releaseLabel}</span>
@@ -16,9 +17,10 @@ import { featured } from '../data/site';
       <h2 id="ikigai-title" class="book__title">{featured.title}</h2>
       <p class="book__subtitle">{featured.subtitle}</p>
       <p class="book__publisher">{featured.publisher}</p>
-      <div class="book__intro">
-        {featured.intro.map((para) => <p>{para}</p>)}
-      </div>
+    </div>
+
+    <div class="book__intro">
+      {featured.intro.map((para) => <p>{para}</p>)}
     </div>
 
     <div class="book__side">
@@ -51,15 +53,29 @@ import { featured } from '../data/site';
     background: var(--moss-pale);
     border-top: var(--line);
   }
-  /* Desktop: text left, cover + buttons right, both vertically centred.
-     Mobile: text → cover → buy buttons. */
+  /* Desktop: title + intro on the left; cover + buttons on the right, top-aligned.
+     Mobile: title → cover + buttons → intro. */
   .book__grid {
     padding-top: 80px;
     padding-bottom: 80px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: center;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'head  side'
+      'intro side';
+    column-gap: 56px;
+    align-items: start;
+  }
+  .book__head {
+    grid-area: head;
+  }
+  .book__intro {
+    grid-area: intro;
+  }
+  .book__side {
+    grid-area: side;
+    margin-top: -24px;
   }
 
   .book__tags {
@@ -138,9 +154,9 @@ import { featured } from '../data/site';
     position: relative;
     width: 272px;
     height: 400px;
-    border: var(--line);
+    border: var(--cover-edge);
     border-radius: 6px;
-    box-shadow: 12px 12px 0 var(--ink);
+    box-shadow: var(--cover-shadow);
     transform: rotate(-2deg);
     overflow: hidden;
     background: var(--cream);
@@ -223,7 +239,14 @@ import { featured } from '../data/site';
       padding-top: 36px;
       padding-bottom: 40px;
       grid-template-columns: 1fr;
-      gap: 0;
+      grid-template-rows: none;
+      grid-template-areas:
+        'head'
+        'side'
+        'intro';
+    }
+    .book__side {
+      margin-top: 0;
     }
     .book__tags {
       gap: 10px;
@@ -252,15 +275,14 @@ import { featured } from '../data/site';
     .book__cover {
       width: 184px;
       height: 268px;
-      box-shadow: 9px 9px 0 var(--ink);
     }
     .book__publisher {
       margin-top: 14px;
       font-size: 13.5px;
     }
     .book__intro {
-      margin-top: 22px;
-      padding-top: 20px;
+      margin-top: 32px;
+      padding-top: 24px;
     }
     .book__intro p {
       font-size: 16px;

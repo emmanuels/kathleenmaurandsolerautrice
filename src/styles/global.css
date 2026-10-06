@@ -26,6 +26,10 @@
   --container: 1080px;
   --gutter: 40px;
   --line: 2px solid var(--ink);
+
+  /* Book covers: soft, warm diffuse shadow (no hard ink offset) and a hairline edge. */
+  --cover-shadow: 0 18px 34px -14px rgba(110, 84, 46, 0.32), 0 4px 12px rgba(110, 84, 46, 0.1);
+  --cover-edge: 1px solid rgba(110, 84, 46, 0.16);
 }
 
 *,
