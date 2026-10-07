@@ -45,7 +45,7 @@ body{margin:0}
     <div style="position:absolute;width:70px;height:70px;border-radius:50%;border:3px solid #4C7A56;bottom:90px;left:20px"></div>
     <div style="position:absolute;width:24px;height:24px;border-radius:50%;background:#4C7A56;top:300px;left:-10px"></div>
     <div style="position:relative;width:250px;height:370px;border:1px solid rgba(110,84,46,0.16);border-radius:6px;box-shadow:${SOFT};transform:rotate(-3deg);overflow:hidden;background:#FBF7ED"><img src="${cover}" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-    <div style="position:absolute;width:140px;height:140px;border-radius:50%;overflow:hidden;border:5px solid #FBF7ED;box-shadow:${SOFT};top:46px;left:-6px;box-sizing:border-box"><img src="${portrait}" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="position:absolute;width:170px;height:170px;border-radius:50%;overflow:hidden;border:5px solid #FBF7ED;box-shadow:${SOFT};top:30px;left:-30px;box-sizing:border-box"><img src="${portrait}" style="width:100%;height:100%;object-fit:cover;display:block"></div>
   </div>
 </div></body></html>`;
 

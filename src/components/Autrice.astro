@@ -18,9 +18,9 @@ import { site } from '../data/site';
       <div class="autrice__photo">
         <Image
           src={portrait}
-          alt="Portrait de Kathleen Maurand Soler, souriante"
-          widths={[110, 150, 220, 300]}
-          sizes="(max-width: 860px) 110px, 150px"
+          alt="Kathleen Maurand Soler, souriante, tenant son livre Ikigaï"
+          widths={[128, 190, 256, 380]}
+          sizes="(max-width: 860px) 128px, 190px"
           loading="eager"
         />
       </div>
@@ -72,7 +72,7 @@ import { site } from '../data/site';
     align-items: center;
     /* Title pushed right, into the big pale bubble. */
     justify-content: flex-end;
-    padding-right: 72px;
+    padding-right: 44px;
   }
   .autrice__title {
     position: relative;
@@ -143,10 +143,10 @@ import { site } from '../data/site';
   .autrice__photo {
     position: absolute;
     z-index: 2;
-    width: 150px;
-    height: 150px;
-    top: -64px;
-    left: -40px;
+    width: 190px;
+    height: 190px;
+    top: -100px;
+    left: -56px;
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid var(--cream);
@@ -186,13 +186,13 @@ import { site } from '../data/site';
       grid-row: auto;
     }
     .autrice__visual {
-      min-height: 300px;
+      min-height: 340px;
       justify-content: center;
       padding-right: 0;
     }
     .autrice__photo {
-      width: 104px;
-      height: 104px;
+      width: 128px;
+      height: 128px;
       top: auto;
       bottom: 0;
       left: auto;
